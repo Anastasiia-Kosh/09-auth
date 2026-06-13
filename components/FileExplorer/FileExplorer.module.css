@@ -1,0 +1,43 @@
+.container {
+  border: 1px solid var(--neutral-200, #e5e7eb);
+  border-radius: 6px;
+  padding: 8px;
+  max-width: 320px;
+  background: var(--card-bg, #fff);
+}
+.header {
+  font-weight: 600;
+  font-size: 13px;
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  margin-bottom: 6px;
+}
+.tree {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-size: 13px;
+}
+.node {
+  user-select: none;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+.row:hover {
+  background: rgba(0,0,0,0.03);
+}
+.icon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  color: #6b7280;
+}
+.name {
+  color: #111827;
+}
+.children {
+  margin-top: 2px;
+}
