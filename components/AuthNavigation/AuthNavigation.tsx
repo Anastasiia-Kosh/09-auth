@@ -14,7 +14,7 @@ const AuthNavigation = () => {
     router.replace('/sign-in')
   };
   return isAuthenticated ? (
-    <ul>
+    <>
       <li className={css.navigationItem}>
         <Link href="/profile" prefetch={false} className={css.navigationLink}>
           Profile
@@ -27,9 +27,9 @@ const AuthNavigation = () => {
           Logout
         </button>
       </li>
-    </ul>
+    </>
   ) : (
-    <ul>
+    <>
       <li className={css.navigationItem}>
         <Link href="/sign-in" prefetch={false} className={css.navigationLink}>
           Login
@@ -41,7 +41,7 @@ const AuthNavigation = () => {
           Sign up
         </Link>
       </li>
-    </ul>
+    </>
   );
 };
 export default AuthNavigation;
