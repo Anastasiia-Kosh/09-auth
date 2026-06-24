@@ -3,10 +3,12 @@ import { login, LoginRequest } from "@/lib/api/clientApi";
 import css from "./SignInPage.module.css";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/store/authStore";
+import { useState } from "react";
 
 const SignIn = () => {
   const router = useRouter();
-  const setAuth = useAuth((store)=>store.setUser)
+  const [error, setError] = useState("");
+  const setAuth = useAuth((store) => store.setUser);
   const handleLogin = async (action: FormData) => {
     try {
       const loginData: LoginRequest = {
@@ -15,15 +17,17 @@ const SignIn = () => {
       };
       const user = await login(loginData);
       if (user) {
-        setAuth(user)
+        setAuth(user);
         router.push("/profile");
+      } else {
+        setError("Invalid email or password");
       }
-    } catch{
-      alert("Something went wrong...");
+    } catch {
+      setError("Oops... some error");
     }
   };
   return (
-    <main className={css.mainContent} >
+    <main className={css.mainContent}>
       <form className={css.form} action={handleLogin}>
         <h1 className={css.formTitle}>Sign in</h1>
 
@@ -55,7 +59,7 @@ const SignIn = () => {
           </button>
         </div>
 
-        {/* <p className={css.error}>{error}</p> */}
+        {error && <p className={css.error}>{error}</p>}
       </form>
     </main>
   );
